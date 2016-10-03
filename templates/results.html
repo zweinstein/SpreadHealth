@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+{% extends "layout.html" %}
+
+    {% block content %}
+        <!-- Page Header -->
+        <!-- Set your background image for this header on the line below. -->
+        <header class="intro-header" style="background-image: url('/static/img/home-bg.jpg')">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                        <div class="site-heading">
+                            <h1>Spread Health</h1>
+                            <hr class="small">
+                            <span class="subheading">Empowering Public Health through Social Media</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <body>
+                   <!-- Main Content -->
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+                    <h3>Your tweet draft:</h3>
+                    <div>{{ content }}</div>
+
+                    <h3>Will it be retweeted?</h3>
+                    <div><strong>{{ prediction }}</strong>
+                         (with {{ probability }}% probability).</div>
+
+                    <div id='button'>
+                          <form action="/thanks" method="post">
+                            <input type=submit value='Correct' name='feedback_button'>
+                            <input type=submit value='Incorrect' name='feedback_button'>
+                            <input type=hidden value='{{ prediction }}' name='prediction'>
+                            <input type=hidden value='{{ content }}' name='review'>
+                          </form>
+                    </div>
+
+                    <div id='button'>
+                          <form action="/">
+                            <input type=submit value='Test another tweet!'>
+                          </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+  </body>
+    {%  endblock %}
+</html>

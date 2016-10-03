@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+{% extends "layout.html" %}
+
+    {% block content %}
+        <!-- Page Header -->
+        <!-- Set your background image for this header on the line below. -->
+        <header class="intro-header" style="background-image: url('/static/img/home-bg.jpg')">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                        <div class="site-heading">
+                            <h1>Spread Health</h1>
+                            <hr class="small">
+                            <span class="subheading">Empowering Public Health through Social Media</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <body>
+            <!-- Main Content -->
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="post-preview">
+                        <a href="/about">
+                            <h2 class="post-title">
+                                Want to tweet to help others stay healthy?
+                            </h2>
+                            <h3 class="post-subtitle">
+                                Write your tweet draft below, and I'll tell you how likely it'll spread!
+                            </h3>
+                        </a>
+                    </div>
+
+            {% from "_formhelpers.html" import render_field %}
+
+            <form method=post action="/results">
+                <dl>
+                    {{ render_field(form.moviereview, cols='60', rows='10') }}
+                </dl>
+                <div>
+                    <input type=submit value='Will it be retweeted?' name='submit_btn'>
+                </div>
+            </form>
+                </div>
+            </div>
+        </div>
+        </body>
+    {% endblock %}
+</html>
