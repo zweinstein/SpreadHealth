@@ -46,10 +46,10 @@ def input():
     form = ReviewForm(request.form)
     return render_template('input.html', form=form)
 
-@app.route('/about')
-def about():
+@app.route('/slides')
+def slides():
     form = ReviewForm(request.form)
-    return render_template('about.html', form=form)
+    return render_template('slides.html', form=form)
 
 
 @app.route('/contact')
