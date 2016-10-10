@@ -10,7 +10,7 @@ def update_model(db_path, model, batch_size=1000):
 
     conn = sqlite3.connect(db_path)
     c = conn.cursor()
-    c.execute('SELECT * from rtDiabetes_db')
+    c.execute('SELECT * from health_db')
 
     results = c.fetchmany(batch_size)
     while results:
@@ -31,7 +31,7 @@ cur_dir = os.path.dirname(__file__)
 clf = pickle.load(open(os.path.join(cur_dir,
                   'pkl_obj',
                   'classifier.pkl'), 'rb'))
-db = os.path.join(cur_dir, 'rtDiabetes.sqlite')
+db = os.path.join(cur_dir, 'health.sqlite')
 
 clf = update_model(db_path=db, model=clf, batch_size=1000)
 

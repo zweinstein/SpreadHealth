@@ -21,32 +21,32 @@
 
         <body>
             <!-- Main Content -->
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    <div class="post-preview">
-                        <a href="/slides">
-                            <h2 class="post-title">
-                                Want to tweet to help others stay healthy?
-                            </h2>
-                            <h3 class="post-subtitle">
-                                Write your tweet draft below, and I'll tell you how likely it'll spread!
-                            </h3>
-                        </a>
+        <div class="container", align="center">
+            <!div class="row">
+
+                <div class="post-preview">
+                    <a href="/slides">
+                        <h2 class="post-title">
+                            Want to tweet to help others stay healthy?
+                        </h2>
+                        <h3 class="post-subtitle">
+                            Write your tweet draft below, and I'll tell you how likely it'll spread!
+                        </h3>
+                    </a>
+                </div>
+
+                {% from "_formhelpers.html" import render_field %}
+
+                <form method=post action="/results">
+                    <dl>
+                        {{ render_field(form.tweet, cols='60', rows='10') }}
+                    </dl>
+                    <div>
+                        <input type=submit value='Will it be retweeted?' name='submit_btn'>
                     </div>
+                </form>
 
-            {% from "_formhelpers.html" import render_field %}
-
-            <form method=post action="/results">
-                <dl>
-                    {{ render_field(form.moviereview, cols='60', rows='10') }}
-                </dl>
-                <div>
-                    <input type=submit value='Will it be retweeted?' name='submit_btn'>
-                </div>
-            </form>
-                </div>
-            </div>
+            <!/div>
 
             <h3 class="post-subtitle" align="center">
                 Example: <br> <br>
@@ -71,7 +71,6 @@
                 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
             </div>
 
-            <!div style="position: absolute; left: 900px; top: 10px; width: 500px; height: 540px;">
             <div class="col-lg-6">
                 <blockquote class="twitter-tweet tw-align-center" data-lang="en">
                     <p lang="en" dir="ltr">Get
