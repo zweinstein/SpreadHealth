@@ -48,13 +48,11 @@ def input():
 
 @app.route('/slides')
 def slides():
-    # form = TweetForm(request.form)
     return render_template('slides.html')
 
 
 @app.route('/contact')
 def contact():
-    # form = TweetForm(request.form)
     return render_template('contact.html')
 
 @app.route('/results', methods=['POST'])
@@ -63,7 +61,6 @@ def results():
     if request.method == 'POST' and form.validate():
         tweet = request.form['tweet']
         y, proba = classify(tweet)
-
         return render_template('results.html',
                                 content=tweet,
                                 prediction=y,
@@ -85,5 +82,5 @@ def feedback():
     return render_template('thanks.html')
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    app.run(host='0.0.0.0', port=5000)
 #    update_model(filepath=db, model=clf, batch_size=1000)
